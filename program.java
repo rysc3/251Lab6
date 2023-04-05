@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DateParser {
+public class program {
   public static int getMonthAsInt(String monthString) {
     int monthInt;
 
@@ -54,6 +54,21 @@ public class DateParser {
 
     // TODO: Read dates from input, parse the dates to find the ones
     // in the correct format, and output in m-d-yyyy format
+    while(true){  // Loop through all intput given
+      String input = scnr.nextLine();
+      if(input.equals("-1")){   // exit if -1 given
+        break;
+      }
 
+      String[] str = input.split(" ");  // Split the input up into an array
+      if(str.length == 3 && str[1].endsWith(",") && str[2].length() == 4){
+        int month = getMonthAsInt(str[0]);
+        if(month > 0){
+          int day = Integer.parseInt(str[1].substring(0, str[1].length() -1));
+          int year = Integer.parseInt(str[2]);
+          System.out.println(month + "-" + day + "-" + year);
+        }
+      }
+    }
   }
 }
